@@ -6,14 +6,11 @@ In this video, we learn how to do integrate Google Admob with Flutter with lates
 
 <hr>
 
-##### 📄Push Notification Website
-https://www.onesignal.com
+##### 📄Admob Website
+https://www.admob.com/
 
-##### 📎OneSignal Flutter Plugin
-https://pub.dev/packages/onesignal_flutter
-
-##### 📎OneSignal WordPress Plugin
-https://wordpress.org/plugins/onesignal-free-web-push-notifications/
+##### 📎Flutter Admob Package
+https://pub.dev/packages/google_mobile_ads
 
 <hr>
 
