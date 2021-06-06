@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'admob_service.dart';
 import 'home_page.dart';
+import 'native_inline_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: NativeInlinePage(),
     );
   }
 }

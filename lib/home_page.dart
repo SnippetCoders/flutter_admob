@@ -39,13 +39,13 @@ class _HomePageState extends State<HomePage> {
         title: Text("Flutter AdMob"),
         elevation: 0,
       ),
-      // bottomNavigationBar: Container(
-      //   height: 50,
-      //   child: AdWidget(
-      //     key: UniqueKey(),
-      //     ad: AdmobService.createBannerAd()..load(),
-      //   ),
-      // ),
+      bottomNavigationBar: Container(
+        height: 50,
+        child: AdWidget(
+          key: UniqueKey(),
+          ad: AdmobService.createBannerAd()..load(),
+        ),
+      ),
       backgroundColor: Colors.grey[200],
       body: ListView.builder(
         addAutomaticKeepAlives: true,

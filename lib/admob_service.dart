@@ -2,13 +2,15 @@ import 'dart:io';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 const String testDevice = '0b60a0dc8901ca7b635b7294ef48b01a';
+const int maxFailedLoadAttempts = 3;
 
 ///https://stackoverflow.com/questions/50972863/admob-banner-how-to-show-only-on-home
 ///
 class AdmobService {
   static BannerAd _bannerAd;
   static InterstitialAd _interstitialAd;
- 
+  static int _numInterstitialLoadAttempts = 0;
+
   static BannerAd get bannerAd => _bannerAd;
   static String get bannerAdUnitId => Platform.isAndroid
       ? 'ca-app-pub-3940256099942544/6300978111'
@@ -31,7 +33,7 @@ class AdmobService {
       size: AdSize.largeBanner,
       request: AdRequest(),
       //listener: null,
-      listener: AdListener(
+      listener: BannerAdListener(
         onAdLoaded: (Ad ad) => print('Ad loaded.'),
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
           print('Ad failed to load: $error');
@@ -39,7 +41,6 @@ class AdmobService {
         },
         onAdOpened: (Ad ad) => print('Ad opened.'),
         onAdClosed: (Ad ad) => print('Ad closed.'),
-        onApplicationExit: (Ad ad) => print('Left application.'),
       ),
     );
 
@@ -61,27 +62,34 @@ class AdmobService {
     }
   }
 
-  static InterstitialAd _createInterstitialAd() {
-    return InterstitialAd(
+  static _createInterstitialAd() {
+    InterstitialAd.load(
       adUnitId: iOSInterstitialAdUnitID,
       request: AdRequest(),
-      listener: AdListener(
-          onAdLoaded: (Ad ad) => {_interstitialAd.show()},
-          onAdFailedToLoad: (Ad ad, LoadAdError error) {
-            print('Ad failed to load: $error');
-          },
-          onAdOpened: (Ad ad) => print('Ad opened.'),
-          onAdClosed: (Ad ad) => {_interstitialAd.dispose()},
-          onApplicationExit: (Ad ad) => {_interstitialAd.dispose()}),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (InterstitialAd ad) {
+          print('$ad loaded');
+          _interstitialAd = ad;
+          _numInterstitialLoadAttempts = 0;
+
+          _interstitialAd.show();
+          _interstitialAd = null;
+        },
+        onAdFailedToLoad: (LoadAdError error) {
+          print('InterstitialAd failed to load: $error.');
+          _numInterstitialLoadAttempts += 1;
+          _interstitialAd = null;
+          if (_numInterstitialLoadAttempts <= maxFailedLoadAttempts) {
+            _createInterstitialAd();
+          }
+        },
+      ),
     );
   }
 
   static void showInterstitialAd() {
-    _interstitialAd?.dispose();
-    _interstitialAd = null;
-
-    if (_interstitialAd == null) _interstitialAd = _createInterstitialAd();
-
-    _interstitialAd.load();
+    if (_interstitialAd == null) {
+      _createInterstitialAd();
+    }
   }
 }
