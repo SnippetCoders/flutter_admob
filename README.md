@@ -1,16 +1,14 @@
-## 💰 Monetizing Flutter apps with Google AdMob 💰
+## Flutter - Bluetooth Printer - Thermal Printer
 
-In this video, we learn how to do integrate Google Admob with Flutter with latest Flutter 2.0 Google Admob Package.
+In this Video we will learn how to integrate Bluetooth Thermal Printer with Flutter Application.
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/TvAnkBjj36E/0.jpg)](https://www.youtube.com/watch?v=TvAnkBjj36E)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/46x7EONbA5w/0.jpg)](https://www.youtube.com/watch?v=46x7EONbA5w)
 
 <hr>
 
-##### 📄Admob Website
-https://www.admob.com/
-
-##### 📎Flutter Admob Package
-https://pub.dev/packages/google_mobile_ads
+##### 📎Flutter Package
+https://pub.dev/packages/intl
+https://pub.dev/packages/bluetooth_print
 
 <hr>
 
@@ -51,4 +49,4 @@ https://youtu.be/yuHg4cSRdRQ
 🔥🔥🔥FLUTTER NEWS APPLICATION USING GETX AND WORDPRESS CUSTOM API : https://youtu.be/-NQR89xwlK8
 
 Tags and SEO Stuff :
-#flutter #flutterengage #admob #flutteradmobintegration #flutteradmob #fluttergoogleads #fluttergoogleadmob #fluttermonetization #monetizeflutterapp #flutteradsense #googleadmob #howtomonetizemobileapps #flutterbeginnertutorial #snippetcoder #googleadmobflutter #flutteradmobtutorial #flutteradmobnativeads #flutterwidgets #fluttertutorialforbeginners #flutteradmobexample  #flutter2.0 #flutter2 #flutterweb #flutter2web #fluttertutorial
+flutter,flutter bluetooth,flutter bluetooth tutorial,flutter bluetooth communication,flutter bluetooth serial,flutter thermal printer,flutter printer,flutter printer wifi,flutter printer usb,flutter thermal printer bluetooth example,flutter thermal printer bluetooth,flutter printer bluetooth,flutter bluetooth thermal printer,flutter tutorial,flutter widgets,flutter apps
